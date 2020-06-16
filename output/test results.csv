@@ -1,0 +1,5 @@
+"2020-06-13 14:41:09.624484",DT,credit_default,0.6923756396274127,"{'DT__class_weight': 'balanced', 'DT__criterion': 'entropy', 'DT__max_depth': 5}"
+"2020-06-13 14:43:21.758236",DT,credit_default,0.6923756396274127,"{'DT__class_weight': 'balanced', 'DT__criterion': 'entropy', 'DT__max_depth': 5}"
+"2020-06-13 16:59:55.064867",DT,credit_default,0.6923756396274127,"{'DT__class_weight': 'balanced', 'DT__criterion': 'entropy', 'DT__max_depth': 5}"
+"2020-06-13 17:13:51.865958",DT,credit_default,0.6923756396274127,"{'DT__class_weight': 'balanced', 'DT__criterion': 'entropy', 'DT__max_depth': 5}"
+"2020-06-14 21:16:26.626944",ANN,credit_default,0.678008927812631,"{'MLP__activation': 'relu', 'MLP__alpha': 3.162277660168379e-06, 'MLP__hidden_layer_sizes': (23, 23, 23), 'MLP__learning_rate_init': 0.128}"
