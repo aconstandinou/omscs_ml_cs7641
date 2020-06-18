@@ -12,13 +12,37 @@ class ANNExperiment(experiments.BaseExperiment):
     def perform(self):
         # Adapted from https://github.com/JonathanTay/CS-7641-assignment-1/blob/master/ANN.py
         # Search for good alphas
+        """
+        alphas:
+        - constrains/penalizes our max weights: high of 10 and diminishing drastically
+        - recall: the larger the weight for an attr, the more it dominates, can lead to OVERFITTING
+        """
         alphas = [10 ** -x for x in np.arange(-1, 9.01, 0.5)]
 
         # TODO: Allow for better tuning of hidden layers based on dataset provided
         d = self._details.ds.features.shape[1]
+        """
+        hiddens
+        - based on the number of features (Xs, or attrs) in our data set
+        - we test 1-2-3 layers using a multiple or division of # Xs.
+        - ex: 23 attributes: test 11, 23, 46 hidden layer sizes
+        """
         hiddens = [(h,) * l for l in [1, 2, 3] for h in [d, d // 2, d * 2]]
+        """
+        https://machinelearningmastery.com/understand-the-dynamics-of-learning-rate-on-deep-learning-neural-networks/
+        learning_rates:
+        - hyperparameter that controls how much to change the model in response to the estimated error each time the model weights are updated. 
+        - a value too small may result in a long training process that could get stuck, 
+        - a value too large may result in learning a sub-optimal set of weights too fast or an unstable training process
+        - may be the most important hyperparameter when configuring ANN.
+        - small positive value, often in the range between 0.0 and 1.0.
+        """
         learning_rates = sorted([(2**x)/1000 for x in range(8)]+[0.000001])
 
+        """
+        logistic: the logistic sigmoid function, returns f(x) = 1 / (1 + exp(-x)).
+        relu: the rectified linear unit function, returns f(x) = max(0, x)
+        """
         params = {'MLP__activation': ['relu', 'logistic'], 'MLP__alpha': alphas,
                   'MLP__learning_rate_init': learning_rates,
                   'MLP__hidden_layer_sizes': hiddens}

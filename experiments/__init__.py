@@ -22,7 +22,7 @@ from .base import *
 from .ANN import *
 #from .Boosting import *
 from .DT import *
-#from .KNN import *
+from .KNN import *
 #from .SVM import *
 from .plotting import *
 

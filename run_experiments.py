@@ -109,9 +109,9 @@ if __name__ == "__main__":
                                                                 threads=threads,
                                                                 seed=seed))
 
-    DT_run = True
+    DT_run = False
     ANN_run = False
-    KNN_run = False
+    KNN_run = True
     SVM_run = False
     BOOSTING_run = False
 
@@ -124,9 +124,8 @@ if __name__ == "__main__":
         run_experiment(experiment_details, experiments.ANNExperiment, 'ANN', verbose, timings)
 
     if KNN_run:
-        print("Start DT Experiment")
-        # TODO: change experiments.DTExperiment to the appropriate KNN
-        run_experiment(experiment_details, experiments.DTExperiment, 'KNN', verbose, timings)
+        print("Start KNN Experiment")
+        run_experiment(experiment_details, experiments.KNNExperiment, 'KNN', verbose, timings)
 
     if SVM_run:
         print("Start DT Experiment")
