@@ -13,9 +13,15 @@ class DTExperiment(experiments.BaseExperiment):
         # TODO: Clean up the older alpha stuff?
         max_depths = np.arange(1, 51, 2)
         """REMOVED 'gini' from DT__criterion list"""
-        params = {'DT__criterion': ['entropy'], 'DT__max_depth': max_depths,
+        """
+        max_depths: this allows us to "prune" by setting the max depth of the tree.
+        """
+        params = {'DT__criterion': ['entropy'],
+                  'DT__max_depth': max_depths,
                   'DT__class_weight': ['balanced', None]}  # , 'DT__max_leaf_nodes': max_leaf_nodes}
-        complexity_param = {'name': 'DT__max_depth', 'display_name': 'Max Depth', 'values': max_depths}
+        complexity_param = {'name': 'DT__max_depth',
+                            'display_name': 'Max Depth',
+                            'values': max_depths}
 
         best_params = None
         # Uncomment to select known best params from grid search. This will skip the grid search and just rebuild

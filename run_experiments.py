@@ -92,7 +92,7 @@ if __name__ == "__main__":
     """track the different experiments to conduct"""
     experiment_details = []
     for ds in datasets:
-        """calls dict key: data which uses a loader function"""
+        """calls dict key: data which uses a loader function object"""
         data = ds['data']
         """
         each dataset has a class in loader.py
